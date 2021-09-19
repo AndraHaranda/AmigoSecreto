@@ -1,33 +1,33 @@
 const draw = (integrantes) => {
   const integrantesEscolhidos = integrantes.map((item) => ({
     apelido: item.apelido,
-    amigoChocolate: null,
+    amigoSecreto: null,
     chosenByAnother: false,
   }));
 
   const members = integrantes.map((item) => item.apelido);
 
   for (let i = 0; i < integrantesEscolhidos.length; i++) {
-    while (!integrantesEscolhidos[i].amigoChocolate) {
-      const amigoChocolate = integrantesEscolhidos[Math.floor(Math.random() * integrantesEscolhidos.length)];
+    while (!integrantesEscolhidos[i].amigoSecreto) {
+      const amigoSecreto = integrantesEscolhidos[Math.floor(Math.random() * integrantesEscolhidos.length)];
 
       if (
-        integrantesEscolhidos[i].apelido === amigoChocolate.apelido || // SE O AMIGO NÃO FOR EU MESMO OU
-        amigoChocolate.chosenByAnother
+        integrantesEscolhidos[i].apelido === amigoSecreto.apelido || // SE O AMIGO NÃO FOR EU MESMO OU
+        amigoSecreto.chosenByAnother
       ) {
         // SE O AMIGO CHOCOLATE JÁ NÃO FOI ESCOLHIDO
         continue;
       }
 
-      integrantesEscolhidos[i].amigoChocolate = amigoChocolate.apelido;
-      const amigoIndex = members.indexOf(amigoChocolate.apelido);
+      integrantesEscolhidos[i].amigoSecreto = amigoSecreto.apelido;
+      const amigoIndex = members.indexOf(amigoSecreto.apelido);
       integrantesEscolhidos[amigoIndex].chosenByAnother = true;
     }
   }
 
   const amigosOcultos = integrantesEscolhidos.map((item) => ({
     apelido: item.apelido,
-    amigoOculto: item.amigoChocolate,
+    amigoOculto: item.amigoSecreto,
   }));
 
   return amigosOcultos;

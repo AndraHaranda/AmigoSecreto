@@ -219,7 +219,7 @@ module.exports = {
       const itemAmigoOculto = listaSorteio.find((item) => item.apelido === integrante.apelido);
       const objetoAmigoOculto = grupo.integrantes.find((user) => user.apelido === itemAmigoOculto.amigoOculto);
 
-      integrante.amigoChocolate = {
+      integrante.amigoSecreto = {
         _id: objetoAmigoOculto._id,
         nome: objetoAmigoOculto.nome,
         email: objetoAmigoOculto.email,

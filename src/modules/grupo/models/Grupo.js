@@ -25,7 +25,7 @@ const GrupoSchema = new mongoose.Schema({
       dataNascimento: String,
       email: String,
       desejos: [String],
-      amigoChocolate: {
+      amigoSecreto: {
         _id: String,
         nome: String,
         apelido: String,
